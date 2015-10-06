@@ -4,7 +4,7 @@
 #
 Name     : tempest-lib
 Version  : 0.9.0
-Release  : 11
+Release  : 12
 URL      : http://tarballs.openstack.org/tempest-lib/tempest-lib-0.9.0.tar.gz
 Source0  : http://tarballs.openstack.org/tempest-lib/tempest-lib-0.9.0.tar.gz
 Summary  : OpenStack Functional Testing Library
