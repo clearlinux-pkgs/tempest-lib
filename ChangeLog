@@ -1,9 +1,29 @@
 CHANGES
 =======
 
+0.14.0
+------
+
+* Add bulk methods to network service clients
+* Migrated 2 network clients from tempest
+* Minor spelling fix
+* Update .gitignore because of to ignore .eggs dir
+* Alter image json schema to allow for null name and size values
+* Change attach_id to volume_id in show_volume_attachment
+* Migrated 2 network clients from tempest
+* Raise IdentityError if auth_url doesn't exist
+* Added __init__.py to tests/services/identity/
+* Updated from global requirements
+* Migrate the skip_unless_attr decorator from tempest
+* Migrated quotas_client and security_groups_client
+* Remove MANIFEST.in
+* Change LOG.warn to LOG.warning
+* Updated from global requirements
+
 0.13.0
 ------
 
+* Prevent StopIteration exception during parse response
 * Keep py3.X compatibility for urllib
 * Migrated 6 network clients from tempest
 
@@ -106,6 +126,7 @@ CHANGES
 * Fix cli.base.execute with py34
 * Updated from global requirements
 * Migrate idempotent id decortor and tooling from tempest
+* Retry ssh connect when EOFError received
 * Updated from global requirements
 * Updated from global requirements
 * Add the resp to RestClientExceptions
