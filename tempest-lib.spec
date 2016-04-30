@@ -4,7 +4,7 @@
 #
 Name     : tempest-lib
 Version  : 0.14.0
-Release  : 18
+Release  : 19
 URL      : http://tarballs.openstack.org/tempest-lib/tempest-lib-0.14.0.tar.gz
 Source0  : http://tarballs.openstack.org/tempest-lib/tempest-lib-0.14.0.tar.gz
 Summary  : OpenStack Functional Testing Library
