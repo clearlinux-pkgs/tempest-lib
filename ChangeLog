@@ -1,6 +1,17 @@
 CHANGES
 =======
 
+1.0.0
+-----
+
+* Add note to README about tempest-lib deprecation
+* Deprecation warning in tempest-lib
+* Add reno release notes to tempest-lib
+* Updated from global requirements
+* Fix project domain problem in v3 token client
+* Add cli execute test case
+* Add update attached volume function to servers_client
+
 0.14.0
 ------
 
