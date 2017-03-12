@@ -1,16 +1,2 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-os-testr
-oslo.log
-paramiko
-httplib2
-jsonschema
-iso8601
-fixtures
-oslo.serialization
-oslo.utils
-oslo.config
-traceback2
-unittest2
-python-mimeparse
-extras

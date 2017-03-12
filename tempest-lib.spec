@@ -4,7 +4,7 @@
 #
 Name     : tempest-lib
 Version  : 1.0.0
-Release  : 29
+Release  : 30
 URL      : http://tarballs.openstack.org/tempest-lib/tempest-lib-1.0.0.tar.gz
 Source0  : http://tarballs.openstack.org/tempest-lib/tempest-lib-1.0.0.tar.gz
 Summary  : OpenStack Functional Testing Library
@@ -23,25 +23,11 @@ Requires: paramiko
 Requires: pbr
 Requires: six
 BuildRequires : configparser-python
-BuildRequires : extras
-BuildRequires : fixtures
-BuildRequires : httplib2
-BuildRequires : iso8601
-BuildRequires : jsonschema
-BuildRequires : os-testr
-BuildRequires : oslo.config
-BuildRequires : oslo.log
-BuildRequires : oslo.serialization
-BuildRequires : oslo.utils
-BuildRequires : paramiko
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : python-dev
-BuildRequires : python-mimeparse
 BuildRequires : python3-dev
 BuildRequires : setuptools
-BuildRequires : traceback2
-BuildRequires : unittest2
 
 %description
 ===========
@@ -74,12 +60,12 @@ python components for the tempest-lib package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489263863
+export SOURCE_DATE_EPOCH=1489335372
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1489263863
+export SOURCE_DATE_EPOCH=1489335372
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
