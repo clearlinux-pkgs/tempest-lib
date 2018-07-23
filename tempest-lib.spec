@@ -4,13 +4,15 @@
 #
 Name     : tempest-lib
 Version  : 1.0.0
-Release  : 32
-URL      : http://tarballs.openstack.org/tempest-lib/tempest-lib-1.0.0.tar.gz
-Source0  : http://tarballs.openstack.org/tempest-lib/tempest-lib-1.0.0.tar.gz
+Release  : 33
+URL      : https://files.pythonhosted.org/packages/27/65/6526be48afed32d6479bf005d9cff82c2fb5071a01e50eff82b1b5ba5565/tempest-lib-1.0.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/27/65/6526be48afed32d6479bf005d9cff82c2fb5071a01e50eff82b1b5ba5565/tempest-lib-1.0.0.tar.gz
 Summary  : OpenStack Functional Testing Library
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: tempest-lib-bin
+Requires: tempest-lib-python3
+Requires: tempest-lib-license
 Requires: tempest-lib-python
 Requires: Babel
 Requires: fixtures
@@ -22,53 +24,72 @@ Requires: oslo.log
 Requires: paramiko
 Requires: pbr
 Requires: six
-BuildRequires : configparser-python
+BuildRequires : buildreq-distutils3
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
-===========
 tempest-lib
-===========
-OpenStack Functional Testing Library
-* Free software: Apache license
-* Documentation: http://docs.openstack.org/developer/tempest-lib
-* Source: http://git.openstack.org/cgit/openstack/tempest-lib
-* Bugs: http://bugs.launchpad.net/tempest
+        ===========
+        
+        OpenStack Functional Testing Library
 
 %package bin
 Summary: bin components for the tempest-lib package.
 Group: Binaries
+Requires: tempest-lib-license
 
 %description bin
 bin components for the tempest-lib package.
 
 
+%package license
+Summary: license components for the tempest-lib package.
+Group: Default
+
+%description license
+license components for the tempest-lib package.
+
+
 %package python
 Summary: python components for the tempest-lib package.
 Group: Default
+Requires: tempest-lib-python3
 
 %description python
 python components for the tempest-lib package.
+
+
+%package python3
+Summary: python3 components for the tempest-lib package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the tempest-lib package.
 
 
 %prep
 %setup -q -n tempest-lib-1.0.0
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1489335372
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1532378129
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1489335372
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+mkdir -p %{buildroot}/usr/share/doc/tempest-lib
+cp LICENSE %{buildroot}/usr/share/doc/tempest-lib/LICENSE
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
@@ -78,6 +99,13 @@ python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 /usr/bin/check-uuid
 /usr/bin/skip-tracker
 
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/tempest-lib/LICENSE
+
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+
+%files python3
+%defattr(-,root,root,-)
+/usr/lib/python3*/*
