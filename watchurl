@@ -1,4 +1,0 @@
-# openstack (Kilo stable) needs version <0.5
-# once they update requirement, we can push >=0.5 versions
-# check: https://github.com/openstack/requirements/blob/stable/kilo/global-requirements.txt
-watchurl=http://tarballs.openstack.org/tempest-lib/tempest-lib-(0\..*).tar.gz
