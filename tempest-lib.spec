@@ -4,7 +4,7 @@
 #
 Name     : tempest-lib
 Version  : 1.0.0
-Release  : 36
+Release  : 37
 URL      : https://files.pythonhosted.org/packages/27/65/6526be48afed32d6479bf005d9cff82c2fb5071a01e50eff82b1b5ba5565/tempest-lib-1.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/27/65/6526be48afed32d6479bf005d9cff82c2fb5071a01e50eff82b1b5ba5565/tempest-lib-1.0.0.tar.gz
 Summary  : OpenStack Functional Testing Library
