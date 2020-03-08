@@ -4,7 +4,7 @@
 #
 Name     : tempest-lib
 Version  : 1.0.0
-Release  : 39
+Release  : 40
 URL      : https://files.pythonhosted.org/packages/27/65/6526be48afed32d6479bf005d9cff82c2fb5071a01e50eff82b1b5ba5565/tempest-lib-1.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/27/65/6526be48afed32d6479bf005d9cff82c2fb5071a01e50eff82b1b5ba5565/tempest-lib-1.0.0.tar.gz
 Summary  : OpenStack Functional Testing Library
@@ -37,39 +37,10 @@ BuildRequires : pbr
 BuildRequires : six
 
 %description
-===========
 tempest-lib
-===========
-
-OpenStack Functional Testing Library
-
-* Free software: Apache license
-* Documentation: http://docs.openstack.org/developer/tempest-lib
-* Source: http://git.openstack.org/cgit/openstack/tempest-lib
-* Bugs: http://bugs.launchpad.net/tempest
-
-tempest-lib is a library of common functionality that was originally in tempest
-(or similar in scope to tempest)
-
-**As of the 1.0.0 release tempest-lib as a separate repository and project is
-deprecated. The library now exists as part of the tempest project, all future
-development will occur there. To use the library for future releases update
-your imports from tempest_lib to tempest.lib, and add tempest>=10 to your
-project requirements**
-
-Features
---------
-
-Some of the current functionality exposed from the library includes:
-
-* OpenStack python-* client CLI testing framework
-* subunit-trace: A output filter for subunit streams. Useful in conjunction
-                 with calling a test runner that emits subunit
-* A unified REST Client
-* Utility functions:
-  * skip_because: Skip a test because of a bug
-  * find_test_caller: Perform stack introspection to find the test caller.
-                      common methods
+        ===========
+        
+        OpenStack Functional Testing Library
 
 %package bin
 Summary: bin components for the tempest-lib package.
@@ -101,7 +72,17 @@ python components for the tempest-lib package.
 Summary: python3 components for the tempest-lib package.
 Group: Default
 Requires: python3-core
-Provides: pypi(tempest-lib)
+Provides: pypi(tempest_lib)
+Requires: pypi(babel)
+Requires: pypi(fixtures)
+Requires: pypi(httplib2)
+Requires: pypi(iso8601)
+Requires: pypi(jsonschema)
+Requires: pypi(os_testr)
+Requires: pypi(oslo.log)
+Requires: pypi(paramiko)
+Requires: pypi(pbr)
+Requires: pypi(six)
 
 %description python3
 python3 components for the tempest-lib package.
@@ -116,8 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582913203
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583698066
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
